@@ -13,37 +13,33 @@
 
 // This functions should check the integrity of the parameters and pass true/false
 function checkParamsFn(year, month, day) {
-  if ((year === parseInt(year)) && (month === parseInt(month)) && (day === parseInt(day)) )
+  if ((typeof year === "number" && typeof month === "number" && typeof day === "day"))
      return true
      else 
       return false
   // Write your code here
-}  
-checkParamsFn(1, 12,1997)
+}
 
   // This functions checks if the person is or above 18 years of age, return true/false
 function checkOverEighteenFn(year, month, day) {
-  var d = new date () 
-  year = d. getfullyear() - year
-  month = d. getMonth() - month
-  day = d. getday() - day
-  if (year >= 18 && month ===0 && day ===0) 
-    return true
-   else 
-    return false
+thisyear = new Date().toISOString().slice(0,4);
+thismonth = new Date().toISOString().slice(5,7);
+thisday = new Date().toISOString().slice(8,10);
+let age = thisyear - year;
+  if (age === 18 && month > thismonth) return false; 
+   else if (age >= 18) return true;
+     else return false;
   // Write your code here
 }
 
 function calculateAgeFn(year, month, day) {
   // Write your code here
-  month = month +1
-  //date = `${month}/${day}/${year}`
- anything = Date.now() - (year, month, day).getTime();
-  birthdate= new Date(anything); 
-  //today = new Date()
- bdate = today - birthdate;
-//age = math.round((today- birthdate)/(365*24*60*60*1000));
- return Math.abs(birthdate.getUTCFullYear() - 1970);
+  thisyear = new Date().toISOString().slice(0,4);
+  thismonth = new Date().toISOString().slice(5,7);
+  let age = thisyear - year;
+if ( checkParamsFn(year, month,day) === false || checkOverEighteenFn(year, month,day) === false)
+  return "error";
+   else return Math.round(age);
 }
 //console.log(bdate)
 //function calculate_age(dob) { 
@@ -68,14 +64,13 @@ module.exports = calculateAgeFn;
 
 //var dob = new Date("06/24/2008"); google 
     //calculate month difference from current date in time  
-    var month_diff = Date.now() - dob.getTime();  
-    dob = new Date("5/19/2012");
+    //var month_diff = Date.now() - dob.getTime();  
 
     //convert the calculated difference in date format  
-    var age_dt = new Date(month_diff);   
+    //var age_dt = new Date(month_diff);   
       
     //extract year from date      
-    var year = age_dt.getUTCFullYear();  
+    //var year = age_dt.getUTCFullYear();  
       
     //now calculate the age of the user  
-   var age = Math.abs(year - 1970);  
+   //var age = Math.abs(year - 1970);  
