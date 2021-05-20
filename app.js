@@ -13,7 +13,7 @@
 
 // This functions should check the integrity of the parameters and pass true/false
 function checkParamsFn(year, month, day) {
-  if ((typeof year === "number" && typeof month === "number" && typeof day === "day"))
+  if ((typeof year === "number" && typeof month === "number" && typeof day === "number"))
      return true
      else 
       return false
@@ -24,23 +24,26 @@ function checkParamsFn(year, month, day) {
 function checkOverEighteenFn(year, month, day) {
 thisyear = new Date().toISOString().slice(0,4);
 thismonth = new Date().toISOString().slice(5,7);
-thisday = new Date().toISOString().slice(8,10);
+//thisday = new Date().toISOString().slice(8,10);
 let age = thisyear - year;
   if (age === 18 && month > thismonth) return false; 
    else if (age >= 18) return true;
      else return false;
   // Write your code here
 }
+console.log(checkOverEighteenFn(1957,3,17))
 
 function calculateAgeFn(year, month, day) {
   // Write your code here
-  thisyear = new Date().toISOString().slice(0,4);
-  thismonth = new Date().toISOString().slice(5,7);
-  let age = thisyear - year;
-if ( checkParamsFn(year, month,day) === false || checkOverEighteenFn(year, month,day) === false)
+  thisYear = new Date().toISOString().slice(0,4);
+  //thismonth = new Date().toISOString().slice(5,7);
+  let age = thisYear - year;
+if ( !checkParamsFn(year, month,day) || !checkOverEighteenFn(year, month,day))
   return "error";
    else return Math.round(age);
+  
 }
+console.log(calculateAgeFn(1997,12,1))
 //console.log(bdate)
 //function calculate_age(dob) { 
   //var diff_ms = Date.now() - dob.getTime();
